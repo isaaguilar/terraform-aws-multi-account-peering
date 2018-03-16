@@ -39,9 +39,9 @@ resource "aws_vpc_peering_connection_accepter" "peer" {
 # Routes for requester #
 ########################
 resource "aws_route" "route_tables" {
-  count                     = "${length(var.route_table_ids)}"
-  route_table_id            = "${element(var.route_table_ids, count.index)}"
-  destination_cidr_block    = "${var.destination_cidr_block}"
+  count                     = "${length(var.this_route_table_ids)}"
+  route_table_id            = "${element(var.this_route_table_ids, count.index)}"
+  destination_cidr_block    = "${var.peer_cidr_block}"
   vpc_peering_connection_id = "${aws_vpc_peering_connection.this.id}"
   depends_on                = ["aws_vpc_peering_connection.this"]
 }
