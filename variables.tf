@@ -1,8 +1,4 @@
-variable "peer_vpc_id" {
-  description = ""
-}
-
-variable "this_vpc_id" {
+variable "name" {
   description = ""
 }
 
@@ -11,22 +7,34 @@ variable "auto_accept_peering" {
   default = true
 }
 
-variable "name" {
-  description = ""
-}
-
 variable "tags" {
   type = "map"
   description = ""
 }
 
-variable "route_table_ids" {
+####################
+## Requester Info ##
+####################
+
+variable "this_vpc_id" {
+  description = ""
+}
+
+variable "this_cidr_block" {
+  description = ""
+}
+
+variable "this_route_table_ids" {
   description = ""
   type = "list"
   default = []
 }
 
-variable "destination_cidr_block" {
+###################
+## Accepter Info ##
+###################
+
+variable "peer_vpc_id" {
   description = ""
 }
 
@@ -37,3 +45,14 @@ variable "peer_region" {
 variable "peer_profile" {
   description = ""
 }
+
+variable "peer_cidr_block" {
+  description = ""
+}
+
+variable "peer_route_table_ids" {
+  description = ""
+  type = "list"
+  default = []
+}
+

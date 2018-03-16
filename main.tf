@@ -45,3 +45,15 @@ resource "aws_route" "route_tables" {
   vpc_peering_connection_id = "${aws_vpc_peering_connection.this.id}"
   depends_on                = ["aws_vpc_peering_connection.this"]
 }
+
+########################
+# Routes for accepter  #
+########################
+resource "aws_route" "peer_route_tables" {
+  provider                  = "aws.peer"
+  count                     = "${length(var.peer_route_table_ids)}"
+  route_table_id            = "${element(var.peer_route_table_ids, count.index)}"
+  destination_cidr_block    = "${var.this_cidr_block}"
+  vpc_peering_connection_id = "${aws_vpc_peering_connection.this.id}"
+  depends_on                = ["aws_vpc_peering_connection.this"]
+}
