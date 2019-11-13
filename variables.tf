@@ -4,11 +4,11 @@ variable "name" {
 
 variable "auto_accept_peering" {
   description = "Whether to auto-accept the peering request"
-  default = true
+  default     = true
 }
 
 variable "tags" {
-  type = "map"
+  type        = map(string)
   description = "Tags to apply"
 }
 
@@ -26,8 +26,8 @@ variable "this_cidr_block" {
 
 variable "this_route_table_ids" {
   description = "Route table IDs of the requestor"
-  type = "list"
-  default = []
+  type        = list
+  default     = []
 }
 
 ###################
@@ -52,7 +52,7 @@ variable "peer_cidr_block" {
 
 variable "peer_route_table_ids" {
   description = "Route table IDs of the peer"
-  type = "list"
-  default = []
+  type        = list
+  default     = []
 }
 
