@@ -26,7 +26,7 @@ variable "this_cidr_block" {
 
 variable "this_route_table_ids" {
   description = "Route table IDs of the requestor"
-  type        = list
+  type        = list(any)
   default     = []
 }
 
@@ -52,7 +52,6 @@ variable "peer_cidr_block" {
 
 variable "peer_route_table_ids" {
   description = "Route table IDs of the peer"
-  type        = list
+  type        = list(any)
   default     = []
 }
-

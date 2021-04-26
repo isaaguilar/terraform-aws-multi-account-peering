@@ -67,4 +67,3 @@ resource "aws_route" "peer_route_tables" {
   vpc_peering_connection_id = aws_vpc_peering_connection.this.id
   depends_on                = [aws_vpc_peering_connection.this]
 }
-
